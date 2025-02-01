@@ -1,0 +1,75 @@
+{
+  "landing": {
+    "header": {
+      "languageSwitcher": {
+        "changeLanguage": "Tilni o'zgartirish",
+        "uz": "O'zbekcha",
+        "ru": "Русский"
+      },
+      "home": "Bosh sahifa",
+      "about": "Biz haqimizda",
+      "services": "Xizmatlar",
+      "contacts": "Aloqa"
+    },
+    "hero": {
+      "title": "10 yillik tajriba, 100 dan ortiq muvaffaqiyli loyihalar, aynan siz istagandek",
+      "description": "Arshpool Building",
+      "services": {
+        "title": "Xizmatlar",
+        "pool": "Basseynlar",
+        "sauna": "Saunalar",
+        "hammam": "Hammomlar"
+      }
+    },
+    "projects": {
+      "subtitle": "Muvaffaqiyatli Loyihalar",
+      "title": "Eng taniqli loyihalarimiz",
+      "TCM": {
+        "title": "Tashkent CityMall Summit",
+        "styleTitle": "Qurilish uslubi",
+        "style": "Modern Minimalistic Style",
+        "presTitle": "Loyiha Taqdimoti",
+        "fountain": "Favvoralar"
+      }
+    },
+    "contacts": {
+      "title": "Bog'lanish",
+      "description": "Qo'ng'iroq qiling yoki raqamingizni qoldiring",
+      "placeholder": "Bog'lanish uchun raqamingizni jo'nating",
+      "submit": "Jo'natish"
+    },
+    "partners": {
+      "title": "Hamkorlar",
+      "description": "Bizning hamkorlarimiz bilan tanishing"
+    },
+    "products": {},
+    "FAQ": {
+      "title": "Ko'p so'raladigan savollar",
+      "questions": {
+        "01": {
+          "question": "Qanday qilib buyurtma berishni boshlash mumkin?",
+          "answer": "Buyurtma berishni boshlash uchun, biz bilan bog'laning yoki bizning saytimizda ro'yxatdan o'ting."
+        },
+        "02": {
+          "question": "Qanday qilib buyurtma qilishni to'xtatish mumkin?",
+          "answer": "Buyurtmani to'xtatish uchun, biz bilan bog'laning yoki bizning saytimizda ro'yxatdan o'ting."
+        },
+        "03": {
+          "question": "Qanday qilib buyurtmani qaytarish mumkin?",
+          "answer": "Buyurtmani qaytarish uchun, biz bilan bog'laning yoki bizning saytimizda ro'yxatdan o'ting."
+        }
+      }
+    },
+    "addresses": {
+      "title": "Manzilimiz",
+      "description": "Toshkent shahri, Yunusobod tumani, Niyozbek yo'li ko'chasi 31"
+    },
+    "footer": {
+      "home": "Bosh sahifa",
+      "products": "Mahsulotlar",
+      "services": "Servis xizmatlari",
+      "contacts": "Aloqa",
+      "copyright": "Barcha huquqlar himoyalangan"
+    }
+  }
+}
