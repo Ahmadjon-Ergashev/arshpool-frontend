@@ -71,5 +71,23 @@
       "contacts": "Контакты",
       "copyright": "Все права защищены"
     }
+  },
+  "store": {
+    "productsList": {
+      "title": "Продукты",
+      "description": "Познакомьтесь с нашими продуктами",
+      "more": "Подробнее",
+      "filter": {
+        "category": "Категория",
+        "tags": "Теги",
+        "priceRange": "Ценовой диапазон"
+      }
+    },
+    "productDetail": {
+      "name": "Название",
+      "desc": "Описание",
+      "price": "Цена",
+      "order": "Заказать"
+    }
   }
 }

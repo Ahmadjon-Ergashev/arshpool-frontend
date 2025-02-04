@@ -15,7 +15,7 @@ export default function Header(): React.JSX.Element {
         <ArshSvg />
       </Link>
       <div className="flex justify-evenly w-[45%] items-center">
-        <Link href="/asdf" className={headerItemClassName}>
+        <Link href="/" className={headerItemClassName}>
           {t("home")}
         </Link>
         <Link href="/#about" className={headerItemClassName}>

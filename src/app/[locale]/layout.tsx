@@ -6,6 +6,8 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
+import { PageParamsType } from "@/types/page";
+
 import "@/styles/globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -51,7 +53,7 @@ export default async function LocaleLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: PageParamsType;
 }>) {
   const locale = (await params).locale;
   if (!routing.locales.includes(locale as any)) {
@@ -64,12 +66,12 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body className={`${roobertFont.className} antialiased`}>
         <NextIntlClientProvider messages={messages}>
-          <header>
+          <header className=" sticky top-0 z-50 bg-secondary-background">
             <Header />
           </header>
           {children}
           <footer>
-            <Footer></Footer>
+            <Footer />
           </footer>
         </NextIntlClientProvider>
       </body>

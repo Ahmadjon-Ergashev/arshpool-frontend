@@ -115,10 +115,6 @@ export default function Products(): React.ReactElement {
   }, []);
 
   useEffect(() => {
-    console.log(container);
-  }, [container.current]);
-
-  useEffect(() => {
     switch (true){
       case containerWidth < 550:
         setCardWidth(containerWidth - 100);

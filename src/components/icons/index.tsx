@@ -285,3 +285,131 @@ export const AddressSvg = (
     </svg>
   );
 };
+
+export const CategorySvg = (
+  props: React.SVGProps<SVGSVGElement>
+): React.ReactElement => {
+  const { className } = props;
+  return (
+    <svg
+      width="34"
+      height="34"
+      viewBox="0 0 34 34"
+      fill="none"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="5.6665"
+        y="5.66667"
+        width="8.5"
+        height="8.5"
+        rx="1"
+        stroke="black"
+        strokeWidth="2.2"
+        strokeLinejoin="round"
+      />
+      <rect
+        x="5.6665"
+        y="19.8333"
+        width="8.5"
+        height="8.5"
+        rx="1"
+        stroke="black"
+        strokeWidth="2.2"
+        strokeLinejoin="round"
+      />
+      <rect
+        x="19.8335"
+        y="19.8333"
+        width="8.5"
+        height="8.5"
+        rx="1"
+        stroke="black"
+        strokeWidth="2.2"
+        strokeLinejoin="round"
+      />
+      <rect
+        x="19.8335"
+        y="5.66667"
+        width="8.5"
+        height="8.5"
+        rx="1"
+        stroke="black"
+        strokeWidth="2.2"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const HashTagSvg = (
+  props: React.SVGProps<SVGSVGElement>
+): React.ReactElement => {
+  const { className } = props;
+  return (
+    <svg
+      width="25"
+      height="26"
+      viewBox="0 0 25 26"
+      fill="none"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <line
+        x1="7.28523e-08"
+        y1="7.9"
+        x2="25"
+        y2="7.9"
+        stroke="black"
+        strokeWidth="2.2"
+      />
+      <line
+        x1="7.28523e-08"
+        y1="17.9"
+        x2="25"
+        y2="17.9"
+        stroke="black"
+        strokeWidth="2.2"
+      />
+      <line
+        x1="17.6"
+        y1="0.500015"
+        x2="17.6"
+        y2="25.5"
+        stroke="black"
+        strokeWidth="2.2"
+      />
+      <line
+        x1="7.6"
+        y1="0.5"
+        x2="7.6"
+        y2="25.5"
+        stroke="black"
+        strokeWidth="2.2"
+      />
+    </svg>
+  );
+};
+
+export const WalletSvg = (
+  props: React.SVGProps<SVGSVGElement>
+): React.ReactElement => {
+  const { className } = props;
+  return (
+    <svg
+      width="34"
+      height="34"
+      viewBox="0 0 34 34"
+      fill="none"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.25001 9.20833V9.20833C4.25001 8.70518 4.25001 8.4536 4.28012 8.24267C4.46859 6.92252 5.50586 5.88525 6.82601 5.69678C7.03694 5.66667 7.28852 5.66667 7.79167 5.66667L27.3333 5.66667C27.8047 5.66667 28.0404 5.66667 28.1869 5.81311C28.3333 5.95956 28.3333 6.19526 28.3333 6.66667V6.75C28.3333 9.57843 28.3333 10.9926 27.4547 11.8713C26.576 12.75 25.1618 12.75 22.3333 12.75H21.25M4.25001 9.20833V9.20833C4.25001 9.71149 4.25001 9.96307 4.28012 10.174C4.46859 11.4941 5.50586 12.5314 6.82601 12.7199C7.03694 12.75 7.28852 12.75 7.79167 12.75L27.75 12.75C28.6928 12.75 29.1642 12.75 29.4571 13.0429C29.75 13.3358 29.75 13.8072 29.75 14.75L29.75 18.4167M4.25001 9.20833L4.25001 25.75C4.25001 27.6356 4.25001 28.5784 4.8358 29.1642C5.42158 29.75 6.36439 29.75 8.25001 29.75L27.75 29.75C28.6928 29.75 29.1642 29.75 29.4571 29.4571C29.75 29.1642 29.75 28.6928 29.75 27.75L29.75 24.0833M29.75 24.0833H23.25C22.3072 24.0833 21.8358 24.0833 21.5429 23.7904C21.25 23.4975 21.25 23.0261 21.25 22.0833V20.4167C21.25 19.4739 21.25 19.0025 21.5429 18.7096C21.8358 18.4167 22.3072 18.4167 23.25 18.4167H29.75M29.75 24.0833L29.75 18.4167"
+        stroke="black"
+        strokeWidth="2.2"
+      />
+    </svg>
+  );
+};

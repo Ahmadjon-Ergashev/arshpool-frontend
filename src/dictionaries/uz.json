@@ -71,5 +71,23 @@
       "contacts": "Aloqa",
       "copyright": "Barcha huquqlar himoyalangan"
     }
+  },
+  "store": {
+    "productsList": {
+      "title": "Mahsulotlar",
+      "description": "Bizning mahsulotlarimiz",
+      "more": "Batafsil",
+      "filter": {
+        "category": "Kategoriya",
+        "tags": "Teglar",
+        "priceRange": "Narx oralig'i"
+      }
+    },
+    "productDetail": {
+      "name": "Nomi",
+      "desc": "Tavsif",
+      "price": "Narxi",
+      "order": "Buyurtma berish"
+    }
   }
 }
