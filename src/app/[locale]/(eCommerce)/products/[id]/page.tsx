@@ -8,10 +8,10 @@ export default async function Product({
 }: {
   params: PageParamsType;
 }): Promise<React.ReactElement> {
-  const url = process.env.BASE_URL;
+  const url = process.env.NEXT_PUBLIC_API_URL;
   const id = (await params).id;
   const data: ProductDetailType = await fetch(
-    `${url}/api/v1/products/${id}`
+    `${url}/api/v1/product/products/${id}`
   ).then((res) => res.json());
 
   return (

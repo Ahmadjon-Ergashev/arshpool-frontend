@@ -1,60 +1,11 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import product from "public/images/temp-product.png";
-import { use, useEffect, useRef, useState } from "react";
-
-const data = [
-  {
-    id: 0,
-    name: "Product 1",
-    description: "Description 1",
-    price: "$100",
-    image: product.src,
-  },
-  {
-    id: 1,
-    name: "Product 2",
-    description: "Description 2",
-    price: "$200",
-    image: product.src,
-  },
-  {
-    id: 2,
-    name: "Product 3",
-    description: "Description 3",
-    price: "$300",
-    image: product.src,
-  },
-  {
-    id: 3,
-    name: "Product 4",
-    description: "Description 4",
-    price: "$300",
-    image: product.src,
-  },
-  {
-    id: 4,
-    name: "Product 5",
-    description: "Description 5",
-    price: "$300",
-    image: product.src,
-  },
-  {
-    id: 5,
-    name: "Product 6",
-    description: "Description 6",
-    price: "$300",
-    image: product.src,
-  },
-  {
-    id: 6,
-    name: "Product 7",
-    description: "Description 7",
-    price: "$300",
-    image: product.src,
-  },
-];
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
+import Link from "./elements/navigation";
 
 const generateStyles = (
   width: number,
@@ -67,7 +18,7 @@ const generateStyles = (
   }
   let zIndex = 1;
   let blur = -Math.floor(count / 2);
-  let left = -cardWidth * Math.abs(blur) * .075;
+  let left = -cardWidth * Math.abs(blur) * 0.075;
   const center = width / 2;
   for (let i = 0; i < count; i++) {
     styles.push({
@@ -83,7 +34,8 @@ const generateStyles = (
       }`,
       filter: `blur(${Math.abs(blur++)}px)`,
     });
-    left += (center - cardWidth / 2) / (Math.ceil(count / 2) - 1) + cardWidth * .075;
+    left +=
+      (center - cardWidth / 2) / (Math.ceil(count / 2) - 1) + cardWidth * 0.075;
 
     if (zIndex == Math.ceil(count / 2)) {
       zIndex = -zIndex;
@@ -91,22 +43,36 @@ const generateStyles = (
   }
   return styles;
 };
-export default function Products(): React.ReactElement {
-  const container = useRef<HTMLDivElement>(null);
-  const [containerWidth, setContainerWidth] = useState<number>(500);
-  const [cardWidth, setCardWidth] = useState(450);
-  const [styles, setStyles] = useState(
-    generateStyles(containerWidth, cardWidth, data.length)
-  );
 
-  useEffect(() => {
-    setContainerWidth(container.current?.clientWidth ?? 1440);
-  }, [container.current?.clientWidth]);
+export default function Products(): React.ReactElement {
+  const locale = useParams().locale as "uz" | "ru";
+
+  const container = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState<number>(container.current?.clientWidth ?? 1440);
+  const [cardWidth, setCardWidth] = useState(450);
+
+  const [data, setData] = useState<ProductType[]>([]);
+  const [styles, setStyles] = useState<React.CSSProperties[]>([]);
+
   useEffect(() => {
     setStyles(generateStyles(containerWidth, cardWidth, data.length));
-  }, [cardWidth, containerWidth]);
+  }, [cardWidth, containerWidth, data.length]);
 
   useEffect(() => {
+    // Fetch products
+    const url = process.env.NEXT_PUBLIC_API_URL;
+    async function fetchPosts() {
+      const res = await fetch(`${url}/api/v1/product/products/landing/`);
+      const data = await res.json();
+      if (data.length % 2 == 0) {
+        setData(data.concat(data[0]));
+      } else {
+        setData(data);
+      }
+    }
+    fetchPosts();
+    setContainerWidth(container.current?.clientWidth ?? 1440);
+    // Resize event listener
     const handleResize = () => {
       setContainerWidth(container.current?.clientWidth ?? 1440);
     };
@@ -115,7 +81,7 @@ export default function Products(): React.ReactElement {
   }, []);
 
   useEffect(() => {
-    switch (true){
+    switch (true) {
       case containerWidth < 550:
         setCardWidth(containerWidth - 100);
         break;
@@ -147,13 +113,14 @@ export default function Products(): React.ReactElement {
         <Product
           key={index}
           {...product}
+          name={product[`name_${locale}`]}
           style={styles.at(index) ?? {}}
           onChangeHandler={() =>
             onChangeHandler(
               parseInt(
                 styles.at(index)?.left?.toString().split("px")[0] ?? "0"
               ) <
-                containerWidth / 2 - 225
+                containerWidth / 2 - cardWidth / 2
                 ? "left"
                 : "right"
             )
@@ -168,27 +135,53 @@ type ProductType = {
   style: React.CSSProperties;
   id: number;
   name: string;
-  description: string;
+  name_ru: string;
+  name_uz: string;
   price: string;
   image: string;
   onChangeHandler: () => void;
 };
 
 function Product(props: ProductType): React.ReactElement {
-  const { style, id, name, description, price, image, onChangeHandler } = props;
+  const t = useTranslations("landing.products");
+  const { style, id, name, price, image, onChangeHandler } = props;
   return (
     <div
       style={style}
       onClick={() => onChangeHandler()}
       className={cn(
-        "flex max-sm:h-50 gap-7 p-4 rounded-3xl bg-white border shadow-xl cursor-pointer absolute select-none top-0 transition-all duration-500"
+        "flex max-sm:h-50 gap-7 p-4 rounded-3xl bg-white border shadow-xl cursor-pointer absolute select-none top-0 transition-[left,scale] duration-500"
       )}
     >
-      <img src={image} alt={name} className="max-sm:h-32 w-auto" />
-      <div className="flex flex-col justify-center">
-        <h1>{name}</h1>
-        <p>{description}</p>
-        <p>{price}</p>
+      <Image
+        src={image}
+        alt={name}
+        width={140}
+        height={200}
+        className="max-sm:h-32 w-40 h-52 rounded-2xl border object-cover"
+      />
+      <div className="flex flex-col justify-around">
+        <div>
+          <span className="uppercase text-base text-[#989898]">
+            {t("name")}
+          </span>
+          <h1 className="text-xl font-bold">{name}</h1>
+        </div>
+        <div>
+          <span className="uppercase text-base text-[#989898]">
+            {t("price")}
+          </span>
+          <p className="text-3xl font-bold">{price}</p>
+        </div>
+        <Link
+          href={{
+            pathname: "/products/[id]",
+            params: { id },
+          }}
+          className="text-blue-500"
+        >
+          {t("more")}
+        </Link>
       </div>
     </div>
   );

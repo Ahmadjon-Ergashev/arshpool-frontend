@@ -7,8 +7,8 @@ export default async function Products({ params, searchParams }: { params: PageP
   const locale = (await params).locale;
   const search = new URLSearchParams(await searchParams)
   
-  const url = process.env.BASE_URL;
-  const data: ProductListType[] = await fetch(`${url}/api/v1/products/?${search.toString()}`).then(
+  const url = process.env.NEXT_PUBLIC_API_URL;
+  const data: ProductListType[] = await fetch(`${url}/api/v1/product/products/?${search.toString()}`).then(
     (res) => res.json()
   );
   return (

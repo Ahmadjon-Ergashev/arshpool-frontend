@@ -42,7 +42,11 @@
       "title": "Hamkorlar",
       "description": "Bizning hamkorlarimiz bilan tanishing"
     },
-    "products": {},
+    "products": {
+      "name": "Nomi",
+      "price": "Narxi",
+      "more": "Batafsil"
+    },
     "FAQ": {
       "title": "Ko'p so'raladigan savollar",
       "questions": {
