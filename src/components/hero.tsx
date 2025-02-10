@@ -9,6 +9,7 @@ import turkishBathBackground from "public/images/turkish-bath-background.png";
 import { useTranslations } from "next-intl";
 import { Button } from "./ui/button";
 import { LinkArrowSvg } from "./icons";
+import { cn } from "@/lib/utils";
 
 export default function Hero(): React.ReactElement {
   const t = useTranslations("landing.hero");
@@ -17,14 +18,14 @@ export default function Hero(): React.ReactElement {
     <>
       <div
         className="container flex flex-col items-center justify-center relative 
-                    h-[512px] text-white px-36 mt-4 bg-gradient-to-b 
-                    from-transparent to-[#00000050] rounded-[40px]"
+                    text-white px-36 max-md:px-4 xl:py-44 md:py-36 sm:py-24 max-sm:py-14 mt-4 bg-gradient-to-b 
+                    from-transparent to-[#00000050] rounded-4xl max-md:rounded-2xl"
       >
         <video
           autoPlay
           loop
           muted
-          className="w-full h-[512px] absolute top-0 left-0 -z-10 object-cover rounded-[40px]"
+          className="w-full h-full absolute top-0 left-0 -z-10 object-cover rounded-4xl max-md:rounded-2xl"
         >
           <source src="/images/pool-background-video.mp4" type="video/mp4" />
           <Image
@@ -34,10 +35,12 @@ export default function Hero(): React.ReactElement {
             className="w-full absolute left-0 top-0 -z-10"
           />
         </video>
-        <h1 className="text-6xl font-bold text-center uppercase">
+        <h1 className="2xl:text-6xl lg:text-5xl md:text-4xl sm:text-2xl max-sm:text-xl font-bold text-center uppercase">
           {t("title")}
         </h1>
-        <p className="text-lg text-gray-400 mt-3">{t("description")}</p>
+        <p className="text-lg max-md:text-sm text-gray-400 mt-3">
+          {t("description")}
+        </p>
       </div>
       <Services />
     </>
@@ -47,40 +50,55 @@ export default function Hero(): React.ReactElement {
 function Services(): React.ReactElement {
   const t = useTranslations("landing.hero.services");
   return (
-    <div className="container mt-8 flex gap-8 items-center justify-center h-[450px]">
+    <div className="container mt-8 flex max-lg:flex-wrap gap-8 max-lg:gap-4 items-center justify-center">
       <ServiceItem
         title={t("pool")}
         label={t("title")}
+        className="max-lg:w-[calc(50%-.5rem)]"
         image={poolBackground}
       />
       <ServiceItem
         title={t("sauna")}
         label={t("title")}
+        className="max-lg:w-[calc(50%-.5rem)]"
         image={saunaBackground}
       />
       <ServiceItem
         title={t("hammam")}
         label={t("title")}
+        className="max-lg:w-full"
         image={turkishBathBackground}
       />
     </div>
   );
 }
 
-function ServiceItem({ label, title, image }: any): React.ReactElement {
+function ServiceItem({
+  label,
+  title,
+  image,
+  className,
+}: any): React.ReactElement {
   return (
-    <div className="w-1/3 rounded-4xl relative h-full group overflow-hidden">
+    <div
+      className={cn(
+        "w-1/3 box-border rounded-4xl max-md:rounded-2xl relative group overflow-hidden xl:h-[450px] lg:h-[350px] md:h-[250px] sm:h-[200px] max-sm:h-[150px]",
+        className
+      )}
+    >
       <Image
-        className="absolute top-0 left-0 w-full h-full -z-10 object-cover rounded-4xl group-hover:scale-110 transition-transform duration-300"
+        className="absolute top-0 left-0 w-full h-full -z-10 object-cover group-hover:scale-110 transition-transform duration-300"
         src={image}
         alt="services"
       />
       <div className="flex flex-col justify-between h-full bg-gradient-to-b from-transparent to-[#00000065]">
-        <div className="flex justify-between items-center p-5">
-          <span className="bg-white px-7 py-3 rounded-full h-fit">{label}</span>
-          <Button className="bg-white text-black rounded-full w-16 h-16"><LinkArrowSvg /></Button>
+        <div className="flex justify-between items-center max-sm:p-3 sm:p-4 md:p-5">
+          <span className="bg-white px-7 py-3 max-md:px-2 max-md:py-1 max-md:text-xs rounded-full h-fit">{label}</span>
+          <Button className="bg-white text-black rounded-full w-16 h-16 max-md:w-10 max-md:h-10">
+            <LinkArrowSvg />
+          </Button>
         </div>
-        <h2 className="text-white font-medium text-4xl px-10 py-8">{title}</h2>
+        <h2 className="text-white font-medium max-sm:text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl max-md:px-4 max-md:py-3 md:px-10 md:py-8 ">{title}</h2>
       </div>
     </div>
   );

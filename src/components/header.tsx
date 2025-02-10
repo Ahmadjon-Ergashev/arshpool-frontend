@@ -7,12 +7,12 @@ export default function Header(): React.JSX.Element {
   const locale = useLocale();
   const t = useTranslations("landing.header");
 
-  const headerItemClassName = "text-secondary font-medium text-lg";
+  const headerItemClassName = "text-secondary font-medium text-lg max-lg:text-base";
 
   return (
     <div className="container flex py-8 justify-between items-center max-md:hidden">
       <Link href="/">
-        <ArshSvg />
+        <ArshSvg className="xl:w-56 lg:w-48 md:w-44 sm:w-36 max-sm:w-32" />
       </Link>
       <div className="flex justify-evenly w-[45%] items-center">
         <Link href="/" className={headerItemClassName}>

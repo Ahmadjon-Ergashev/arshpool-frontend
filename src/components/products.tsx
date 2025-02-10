@@ -82,6 +82,9 @@ export default function Products(): React.ReactElement {
 
   useEffect(() => {
     switch (true) {
+      case containerWidth < 400:
+        setCardWidth(containerWidth - 50);
+        break
       case containerWidth < 550:
         setCardWidth(containerWidth - 100);
         break;
@@ -150,7 +153,7 @@ function Product(props: ProductType): React.ReactElement {
       style={style}
       onClick={() => onChangeHandler()}
       className={cn(
-        "flex max-sm:h-50 gap-7 p-4 rounded-3xl bg-white border shadow-xl cursor-pointer absolute select-none top-0 transition-[left,scale] duration-500"
+        "flex max-sm:h-50 gap-7 max-sm:gap-3 p-4 max-sm:p-3 rounded-3xl bg-white border shadow-xl cursor-pointer absolute select-none top-0 transition-[left,scale] duration-500"
       )}
     >
       <Image
@@ -158,20 +161,20 @@ function Product(props: ProductType): React.ReactElement {
         alt={name}
         width={140}
         height={200}
-        className="max-sm:h-32 w-40 h-52 rounded-2xl border object-cover"
+        className="w-40 h-52 max-sm:h-32 max-sm:w-2/5 rounded-2xl border object-cover"
       />
       <div className="flex flex-col justify-around">
         <div>
-          <span className="uppercase text-base text-[#989898]">
+          <span className="uppercase text-base max-sm:text-sm text-[#989898]">
             {t("name")}
           </span>
-          <h1 className="text-xl font-bold">{name}</h1>
+          <h1 className="text-xl max-sm:text-lg max-xs:text-base font-bold">{name}</h1>
         </div>
         <div>
-          <span className="uppercase text-base text-[#989898]">
+          <span className="uppercase text-base max-sm:text-sm text-[#989898]">
             {t("price")}
           </span>
-          <p className="text-3xl font-bold">{price}</p>
+          <p className="text-3xl max-sm:text-xl font-bold">{price}</p>
         </div>
         <Link
           href={{

@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 export default function Partners(): React.ReactElement {
     const t = useTranslations("landing.partners");
     return (
-        <div className="container mt-16">
+        <div className="container mt-16 hidden">
             <p className="text-center text-xl text-[#989898] uppercase">{t("description")}</p>
             <h2 className="text-5xl font-bold text-center mt-5">{t("title")}</h2>
             <div className="grid grid-cols-4 gap-4 mt-16">

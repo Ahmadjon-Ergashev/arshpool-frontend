@@ -35,7 +35,7 @@
     "contacts": {
       "title": "Bog'lanish",
       "description": "Qo'ng'iroq qiling yoki raqamingizni qoldiring",
-      "placeholder": "Bog'lanish uchun raqamingizni jo'nating",
+      "placeholder": "Raqamingizni qoldiring",
       "submit": "Jo'natish"
     },
     "partners": {
