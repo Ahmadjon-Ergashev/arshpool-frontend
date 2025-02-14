@@ -7,7 +7,7 @@ export default function Projects(): React.ReactElement {
   const t = useTranslations("landing.projects");
 
   return (
-    <div className="container mt-16 max-md:mt-10">
+    <div className="container mt-16 max-md:mt-10" id='about'>
       <div className="mx-auto">
         <h3 className="text-center text-xl max-md:text-xs text-[#989898] uppercase">
           {t("subtitle")}

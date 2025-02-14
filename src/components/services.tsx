@@ -7,7 +7,7 @@ export default function Services(): React.ReactElement {
   const t = useTranslations("landing.contacts");
 
   return (
-    <div className="container mt-24">
+    <div className="container mt-24" id="contacts">
         <h2 className="xl:text-5xl lg:text-4xl md:text-3xl max-md:text-2xl text-center font-bold max-md:hidden">{t("title")}</h2>
         <div className="w-full rounded-4xl mt-24 max-md:mt-10 h-[420px] max-xxs:h-[280px] max-xs:h-[300px] relative bg-gradient-to-br from-[#FFAE00] to-[#FFE3A6] to-60% z-0">
             <Image src={services} alt="services" className="absolute w-1/2 max-lg:w-2/3 max-md:w-5/6 max-xs:w-11/12 md:bottom-0 right-0 max-xxs:bottom-1/2 xxs:bottom-[15%] xs:bottom-[30%] -z-20" />

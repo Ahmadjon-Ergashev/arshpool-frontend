@@ -7,6 +7,8 @@
         "ru": "Русский"
       },
       "home": "Bosh sahifa",
+      "products": "Mahsulotlar",
+      "catalog": "Katalog",
       "about": "Biz haqimizda",
       "services": "Xizmatlar",
       "contacts": "Aloqa"
@@ -71,6 +73,7 @@
     "footer": {
       "home": "Bosh sahifa",
       "products": "Mahsulotlar",
+      "catalog": "Katalog",
       "services": "Servis xizmatlari",
       "contacts": "Aloqa",
       "copyright": "Barcha huquqlar himoyalangan"

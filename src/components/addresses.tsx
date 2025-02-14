@@ -4,7 +4,7 @@ import { AddressSvg } from "./icons";
 export default function Addresses(): React.ReactElement {
   const t = useTranslations("landing.addresses");
   return (
-    <div className="container mt-16">
+    <div className="container mt-16 max-md:mb-20" id="addresses">
       <h2 className="xl:text-5xl md:text-4xl sm:text-3xl max-sm:text-2xl font-bold text-center">{t("title")}</h2>
       <div className="w-full mt-10 rounded-4xl bg-[#E8F4F7] p-10 max-sm:p-3">
         <iframe

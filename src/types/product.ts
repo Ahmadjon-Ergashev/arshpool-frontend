@@ -9,6 +9,9 @@ export type CategoryType = {
   name_uz: string;
   name_ru: string;
   image: string;
+  status: "M" | "A";
+  childrens?: CategoryType[];
+  products?: ProductListType[];
 };
 
 export type ProductDetailType = {

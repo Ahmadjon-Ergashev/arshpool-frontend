@@ -2,7 +2,7 @@ import {MetadataRoute} from 'next';
 import {Locale, getPathname, routing} from '@/i18n/routing';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [getEntry('/'), getEntry('/pathnames')];
+  return [getEntry('/'), getEntry('/products'), getEntry('/catalog')];
 }
 
 type Href = Parameters<typeof getPathname>[0]['href'];

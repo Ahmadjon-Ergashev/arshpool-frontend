@@ -25,6 +25,7 @@ export default function Hero(): React.ReactElement {
           autoPlay
           loop
           muted
+          playsInline
           className="w-full h-full absolute top-0 left-0 -z-10 object-cover rounded-4xl max-md:rounded-2xl"
         >
           <source src="/images/pool-background-video.mp4" type="video/mp4" />
@@ -50,7 +51,7 @@ export default function Hero(): React.ReactElement {
 function Services(): React.ReactElement {
   const t = useTranslations("landing.hero.services");
   return (
-    <div className="container mt-8 flex max-lg:flex-wrap gap-8 max-lg:gap-4 items-center justify-center">
+    <div className="container mt-8 flex max-lg:flex-wrap gap-8 max-lg:gap-4 items-center justify-center" id="services">
       <ServiceItem
         title={t("pool")}
         label={t("title")}

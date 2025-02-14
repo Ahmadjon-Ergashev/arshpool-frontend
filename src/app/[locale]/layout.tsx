@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import localFont from "next/font/local";
 
 import { NextIntlClientProvider } from "next-intl";
@@ -11,6 +11,7 @@ import { PageParamsType } from "@/types/page";
 import "@/styles/globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import BottomNavBar from "@/components/bottom-nav-bar";
 
 const roobertFont = localFont({
   src: [
@@ -34,19 +35,35 @@ const roobertFont = localFont({
   ],
 });
 
-export const metadata: Metadata = {
-  title: "Arshpool Building",
-  description:
-    "Arshpool Building - 10 yillik tarjiba, 200+ muvafaqqiyatli loyihalar, aynan siz istagandek.",
-  icons: [
-    {
-      url: "/icon.png",
-      rel: "icon",
-      type: "image/png",
-      sizes: "any",
+export async function generateMetadata(
+  { params }: { params: PageParamsType },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const locale = (await params).locale;
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+  const title = locale === "uz" ? "Arshpool Building" : "Arshpool Building";
+  const desc =
+    locale === "uz"
+      ? "Arshpool Building - 10 yillik tarjiba, 200+ muvafaqqiyatli loyihalar, aynan siz istagandek"
+      : "Arshpool Building – 10 лет опыта, 200+ успешных проектов, именно то, что вы хотите";
+
+  return {
+    title: title,
+    description: desc,
+    icons: [
+      {
+        url: "/icon.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+    ],
+    openGraph: {
+      images: ["/icon.png", ...previousImages],
     },
-  ],
-};
+  };
+}
 
 export default async function LocaleLayout({
   children,
@@ -70,6 +87,7 @@ export default async function LocaleLayout({
             <Header />
           </header>
           {children}
+          <BottomNavBar />
           <footer>
             <Footer />
           </footer>

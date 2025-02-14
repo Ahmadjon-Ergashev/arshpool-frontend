@@ -12,8 +12,10 @@ export const routing = defineRouting({
     '/#about': "/#about",
     '/products': "/products",
     '/products/[id]': "/products/[id]",
+    '/catalog': "/catalog",
+    '/catalog/[slug]': "/catalog/[slug]",
     '/category': "/category",
-    '/category/:slug': "/category/:slug",
+    '/category/[slug]': "/category/[slug]",
   }
 });
 export type Pathnames = keyof typeof routing.pathnames;

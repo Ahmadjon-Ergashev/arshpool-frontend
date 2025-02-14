@@ -1,7 +1,27 @@
 import { ProductListType } from "@/types/product";
 import ProductFilterGrid from "@/components/elements/product-filter-grid";
 import { PageParamsType } from "@/types/page";
+import { Metadata, ResolvingMetadata } from "next";
 
+export async function generateMetadata(
+  { params }: {params: PageParamsType},
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const locale = (await params).locale
+ 
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || []
+  const title = locale === "uz" ? "Arshpool barcha mahsulotlari" : "Все товары Arshpool"
+  const desc = locale === "uz" ? "Arshpool barcha mahsulotlari" : "Все товары Arshpool"
+ 
+  return {
+    title: title,
+    description: desc,
+    openGraph: {
+      images: ['/icon.png', ...previousImages],
+    },
+  }
+}
 
 export default async function Products({ params, searchParams }: { params: PageParamsType, searchParams: URLSearchParams }) {
   const locale = (await params).locale;

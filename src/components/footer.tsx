@@ -6,13 +6,13 @@ export default function Footer(): React.ReactElement {
     const t = useTranslations("landing.footer");
 
     return (
-        <div className="bg-black rounded-t-[100px] max-md:rounded-t-[50px] pt-16 pb-4 mt-10">
+        <div className="bg-black rounded-t-[100px] max-md:rounded-t-[50px] pt-16 pb-4 mt-10 max-md:hidden">
             <div className="container max-md:px-6">
                 <div className="flex flex-wrap justify-between items-center max-md:flex-col max-md:gap-6 max-md:items-baseline">
                     <ArshSvg className="fill-white"/>
                     <div className="max-md:w-full max-md:justify-start max-md:px-0 max-md:gap-6 flex-1 flex justify-evenly px-16 xl:text-xl md:text-base max-md:text-sm">
-                        <Link href="/" className="text-white">{t("home")}</Link>
                         <Link href="/products" className="text-white">{t("products")}</Link>
+                        <Link href="/catalog" className="text-white">{t("catalog")}</Link>
                         <Link href="/" className="text-white">{t("services")}</Link>
                     </div>
                     <div className="flex gap-4 py-4 text-xl font-medium">

@@ -18,11 +18,14 @@ import { useRouter, usePathname } from "@/i18n/routing";
 import { locales } from "@/i18n/config";
 import { DownArrowSvg, LangChangeSvg } from "../icons";
 import { useParams } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export default function LanguageSwitcher({
   defaultValue,
+  className
 }: {
   defaultValue: string;
+  className?: string;
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -45,8 +48,8 @@ export default function LanguageSwitcher({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="bg-gradient-to-t from-[#F6FAFF] to-[#D6E6FF] text-secondary text-base h-auto rounded-xl shadow-md">
-          <LangChangeSvg className="!h-6 !w-6" />
+        <Button className={cn("bg-gradient-to-t from-[#F6FAFF] to-[#D6E6FF] text-secondary text-base h-auto rounded-xl shadow-md max-md:text-sm max-md:h-fit", className)}>
+          <LangChangeSvg className="!h-6 !w-6 max-md:hidden" />
           {t(defaultValue)} <DownArrowSvg />
         </Button>
       </DropdownMenuTrigger>

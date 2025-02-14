@@ -10,7 +10,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: #f4fdff;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -74,8 +74,34 @@
 }
 
 body{
-  background-color: var(--secondary-background);
+  background-color: var(--background);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+
+.bottom-nav-bar__item{
+  padding: 15px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+.bottom-nav-bar__item svg {
+  fill: black;
+  stroke: black;
+}
+
+.bottom-nav-bar__active {
+  border: 5px solid var(--background);
+
+  transform: translateY(-25px);
+  background: black;
+  border-radius: 50%;
+  padding: 10px;
+}
+.bottom-nav-bar__active svg{
+  fill: white;
+  stroke: white;
 }
