@@ -80,7 +80,7 @@ export default function GallaryGrid({
           {modalState.image && (
             <Image
               src={modalState.image}
-              alt="Zoom In"
+              alt="Arshpool Building"
               width={900}
               height={600}
               loading="lazy"
