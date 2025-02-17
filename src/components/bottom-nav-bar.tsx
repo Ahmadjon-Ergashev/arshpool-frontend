@@ -51,7 +51,7 @@ export default function BottomNavBar(): React.ReactElement {
           <CatalogSvg />
         </Link>
         <Link
-          href="/"
+          href="/gallary"
           className={cn(
             "text-secondary font-medium text-lg max-lg:text-base bottom-nav-bar__item",
             active === "gallary" && "bottom-nav-bar__active"

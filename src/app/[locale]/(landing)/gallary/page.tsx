@@ -19,7 +19,7 @@ export default async function Gallary({
   ).then((res) => res.json());
   return (
     <main className="max-md:px-3">
-      <div className="container flex flex-col gap-4">
+      <div className="container flex flex-col gap-4 mb-16">
         {data.map((gallary) => (
           <GallaryGrid key={gallary.id} gallary={gallary} locale={locale} />
         ))}

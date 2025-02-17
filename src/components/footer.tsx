@@ -13,6 +13,7 @@ export default function Footer(): React.ReactElement {
                     <div className="max-md:w-full max-md:justify-start max-md:px-0 max-md:gap-6 flex-1 flex justify-evenly px-16 xl:text-xl md:text-base max-md:text-sm">
                         <Link href="/products" className="text-white">{t("products")}</Link>
                         <Link href="/catalog" className="text-white">{t("catalog")}</Link>
+                        <Link href="/gallary" className="text-white">{t("gallary")}</Link>
                         <Link href="/" className="text-white">{t("services")}</Link>
                     </div>
                     <div className="flex gap-4 py-4 text-xl font-medium">
