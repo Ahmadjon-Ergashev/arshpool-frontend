@@ -2,20 +2,10 @@ import React from "react";
 import Link from "@/components/elements/navigation";
 import ProductCard from "@/components/elements/product-card";
 import { CategoryType } from "@/types/product";
-import { useTranslations } from "next-intl";
 
-declare type CatalogParams = {
-  slug: string;
-  locale: string;
-};
-
-export default async function Catalog({
-  params,
-}: {
-  params: CatalogParams;
-}): Promise<React.ReactElement> {
-  const locale = (await params).locale as "uz" | "ru";
-  const slug = (await params).slug;
+export default async function Catalog({ params }: { params: Promise<{ slug: string, locale: "uz" | "ru" }> }) {
+  const { locale } = await params;
+  const { slug } = await params;
 
   const title = locale === "uz" ? "Mahsulotlar" : "Товары";
 

@@ -2,6 +2,7 @@ import priceFormatter from "@/lib/formatters";
 import { useTranslations } from "next-intl";
 import Link from "./navigation";
 import { ProductListType } from "@/types/product";
+import Image from "next/image";
 
 export default function ProductCard({
   product,
@@ -13,7 +14,7 @@ export default function ProductCard({
   const t = useTranslations("store.productsList");
   return (
     <div className="w-full border border-gray-200 px-5 py-7 rounded-3xl bg-white hover:scale-[102%] duration-200 hover:shadow-2xl hover:shadow-cyan-100">
-      <img
+      <Image
         className="w-full h-48 object-cover mb-3"
         src={product.image}
         alt={product.name_uz}

@@ -8,7 +8,7 @@ import GallaryGrid from "@/components/elements/gallary-grid";
 export default async function Gallary({
   params,
 }: {
-  params: PageParamsType;
+  params: Promise<{ slug?: string; locale: "uz" | "ru" }>;
 }): Promise<React.ReactElement> {
   const locale = (await params).locale as "uz" | "ru";
   const slug = (await params).slug;

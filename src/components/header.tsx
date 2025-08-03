@@ -3,14 +3,6 @@ import Link from "@/components/elements/navigation";
 import LanguageSwitcher from "./elements/language-switcher";
 import { useLocale, useTranslations } from "next-intl";
 
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 
 export default function Header(): React.JSX.Element {
   const locale = useLocale();

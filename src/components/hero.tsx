@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import poolBackground from "public/images/pool-background.png";
 import heroBackground from "public/images/hero-background.png";
 import saunaBackground from "public/images/sauna-background.png";
@@ -79,7 +79,12 @@ function ServiceItem({
   title,
   image,
   className,
-}: any): React.ReactElement {
+}: {
+  label: string;
+  title: string;
+  image: StaticImageData | string;
+  className?: string;
+}): React.ReactElement {
   return (
     <div
       className={cn(

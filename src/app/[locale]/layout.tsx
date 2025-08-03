@@ -6,8 +6,6 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
-import { PageParamsType } from "@/types/page";
-
 import "@/styles/globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -36,7 +34,7 @@ const roobertFont = localFont({
 });
 
 export async function generateMetadata(
-  { params }: { params: PageParamsType },
+  { params }: { params: Promise<{ locale: "uz" | "ru" }> },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const locale = (await params).locale;
@@ -70,10 +68,10 @@ export default async function LocaleLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: PageParamsType;
+  params: Promise<{ locale: "uz" | "ru" }>;
 }>) {
   const locale = (await params).locale;
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as "uz" | "ru")) {
     notFound();
   }
   setRequestLocale(locale);

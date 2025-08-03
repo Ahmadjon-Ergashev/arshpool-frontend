@@ -13,6 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import Image from "next/image";
 
 export default function BottomNavBar(): React.ReactElement {
   const [active, setActive] = useState("home");
@@ -146,7 +147,7 @@ export default function BottomNavBar(): React.ReactElement {
           </SheetContent>
         </Sheet>
       </div>
-      <img src={encodedSVG} alt="" />
+      <Image src={encodedSVG} alt="" />
     </div>
   );
 }

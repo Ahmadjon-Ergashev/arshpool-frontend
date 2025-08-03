@@ -1,5 +1,4 @@
 import { CategoryType } from "@/types/product";
-import { PageParamsType } from "@/types/page";
 import { Metadata, ResolvingMetadata } from "next";
 import { cn } from "@/lib/utils";
 import Link from "@/components/elements/navigation";
@@ -25,7 +24,7 @@ import Link from "@/components/elements/navigation";
 //     }
 //   }
 
-export default async function Catalog({ params }: { params: PageParamsType }) {
+export default async function Catalog({ params }: { params: Promise<{ locale: "uz" | "ru" }> }) {
   const locale = (await params).locale;
 
   const url = process.env.NEXT_PUBLIC_API_URL;
