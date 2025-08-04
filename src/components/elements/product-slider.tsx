@@ -68,7 +68,7 @@ export default function ProductSlider({
     [ThumbnailPlugin(instanceRef)]
   );
   return (
-    <div className="w-1/2 max-lg:w-full">
+    <div className="w-1/3 max-lg:w-full">
       <div ref={sliderRef} className="keen-slider mb-5">
         {images.map((image) => (
           <div

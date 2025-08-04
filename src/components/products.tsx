@@ -7,11 +7,7 @@ import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Link from "./elements/navigation";
 
-const generateStyles = (
-  width: number,
-  cardWidth: number,
-  count: number
-): React.CSSProperties[] => {
+const generateStyles = (width: number, cardWidth: number, count: number): React.CSSProperties[] => {
   const styles: React.CSSProperties[] = [];
   if (count === 2) {
     return [{}, {}];
@@ -27,15 +23,10 @@ const generateStyles = (
       left: `${left}px`,
       zIndex: Math.abs(zIndex++),
       scale: `${100 - Math.abs(blur) * 15}%`,
-      background: `${
-        i + 1 === Math.ceil(count / 2)
-          ? "white"
-          : "linear-gradient(45deg, #fff, #e3f6ff)"
-      }`,
+      background: `${i + 1 === Math.ceil(count / 2) ? "white" : "linear-gradient(45deg, #fff, #e3f6ff)"}`,
       filter: `blur(${Math.abs(blur++)}px)`,
     });
-    left +=
-      (center - cardWidth / 2) / (Math.ceil(count / 2) - 1) + cardWidth * 0.075;
+    left += (center - cardWidth / 2) / (Math.ceil(count / 2) - 1) + cardWidth * 0.075;
 
     if (zIndex == Math.ceil(count / 2)) {
       zIndex = -zIndex;
@@ -46,6 +37,7 @@ const generateStyles = (
 
 export default function Products(): React.ReactElement {
   const locale = useParams().locale as "uz" | "ru";
+  const t = useTranslations("landing.products");
 
   const container = useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = useState<number>(container.current?.clientWidth ?? 1440);
@@ -84,7 +76,7 @@ export default function Products(): React.ReactElement {
     switch (true) {
       case containerWidth < 400:
         setCardWidth(containerWidth - 50);
-        break
+        break;
       case containerWidth < 550:
         setCardWidth(containerWidth - 100);
         break;
@@ -104,32 +96,30 @@ export default function Products(): React.ReactElement {
       const newStyles = styles.slice(1, styles.length).concat(styles[0]);
       setStyles(newStyles);
     } else {
-      const newStyles = styles
-        .slice(styles.length - 1, styles.length)
-        .concat(styles.slice(0, styles.length - 1));
+      const newStyles = styles.slice(styles.length - 1, styles.length).concat(styles.slice(0, styles.length - 1));
       setStyles(newStyles);
     }
   };
   return (
-    <div className="container mt-16 h-52 relative" ref={container}>
-      {data.map((product, index) => (
-        <Product
-          key={index}
-          {...product}
-          name={product[`name_${locale}`]}
-          style={styles.at(index) ?? {}}
-          onChangeHandler={() =>
-            onChangeHandler(
-              parseInt(
-                styles.at(index)?.left?.toString().split("px")[0] ?? "0"
-              ) <
-                containerWidth / 2 - cardWidth / 2
-                ? "left"
-                : "right"
-            )
-          }
-        />
-      ))}
+    <div className="container mt-20 max-sm:mt-4 xl:px-14 md:px-8 max-sm:px-4">
+      <h2 className="xl:text-5xl md:text-4xl sm:text-3xl max-sm:text-2xl font-bold text-center mt-5">{t("title")}</h2>
+      <div className="container mt-16 h-52 relative" ref={container}>
+        {data.map((product, index) => (
+          <Product
+            key={index}
+            {...product}
+            name={product[`name_${locale}`]}
+            style={styles.at(index) ?? {}}
+            onChangeHandler={() =>
+              onChangeHandler(
+                parseInt(styles.at(index)?.left?.toString().split("px")[0] ?? "0") < containerWidth / 2 - cardWidth / 2
+                  ? "left"
+                  : "right"
+              )
+            }
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -141,21 +131,21 @@ type ProductType = {
   name_ru: string;
   name_uz: string;
   price: string;
+  price_type: string;
   image: string;
   onChangeHandler: () => void;
 };
 
 function Product(props: ProductType): React.ReactElement {
   const t = useTranslations("landing.products");
-  const { style, id, name, price, image, onChangeHandler } = props;
+  const { style, id, name, price, price_type, image, onChangeHandler } = props;
   return (
     <div
       style={style}
       onClick={() => onChangeHandler()}
       className={cn(
         "flex max-sm:h-50 gap-7 max-sm:gap-3 p-4 max-sm:p-3 rounded-3xl bg-white border shadow-xl cursor-pointer absolute select-none top-0 transition-[left,scale] duration-500"
-      )}
-    >
+      )}>
       <Image
         src={image}
         alt={name}
@@ -165,24 +155,21 @@ function Product(props: ProductType): React.ReactElement {
       />
       <div className="flex flex-col justify-around">
         <div>
-          <span className="uppercase text-base max-sm:text-sm text-[#989898]">
-            {t("name")}
-          </span>
-          <h1 className="text-xl max-sm:text-lg max-xs:text-base font-bold">{name}</h1>
+          <span className="uppercase text-base max-sm:text-sm text-[#989898]">{t("name")}</span>
+          <h1 className="text-xl max-sm:text-lg max-xs:text-base font-bold line-clamp-2">{name}</h1>
         </div>
         <div>
-          <span className="uppercase text-base max-sm:text-sm text-[#989898]">
-            {t("price")}
-          </span>
-          <p className="text-3xl max-sm:text-xl font-bold">{price}</p>
+          <span className="uppercase text-base max-sm:text-sm text-[#989898]">{t("price")}</span>
+          <p className="text-3xl max-sm:text-xl font-bold">
+            {price} {t(price_type)}
+          </p>
         </div>
         <Link
           href={{
             pathname: "/products/[id]",
             params: { id },
           }}
-          className="text-blue-500"
-        >
+          className="text-blue-500">
           {t("more")}
         </Link>
       </div>

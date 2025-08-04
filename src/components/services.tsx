@@ -16,8 +16,8 @@ export default function Services(): React.ReactElement {
               <span className="bg-white rounded-full px-5 py-2 w-fit max-sm:hidden">{t("title")}</span>
               <h1 className="xl:text-5xl lg:text-4xl xs:text-3xl max-xs:text-2xl font-medium">{t("description")}</h1>
               <div className="flex gap-7 max-sm:justify-between max-sm:gap-0">
-                <a className="flex gap-3 items-center text-black font-medium text-2xl max-sm:text-base" href="tel:/777070707"><PhoneSvg /> 77 707 07 07</a>
-                <a className="flex gap-3 items-center text-black font-medium text-2xl max-sm:text-base" href="tel:/777070707"><PhoneSvg /> 77 717 07 07</a>
+                <a className="flex gap-3 items-center text-black font-medium text-2xl max-sm:text-base" href="tel:/777070707"><PhoneSvg /> 99 604 44 44</a>
+                <a className="flex gap-3 items-center text-black font-medium text-2xl max-sm:text-base" href="tel:/777070707"><PhoneSvg /> 99 926 16 18</a>
               </div>
               <div className="w-full h-16 max-sm:h-8 rounded-full border border-white flex justify-between items-center">
                 <input type="text" className="bg-transparent outline-none placeholder-white font-medium text-xl max-sm:text-sm flex-1 pl-4" placeholder={t("placeholder")}/>

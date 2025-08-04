@@ -47,7 +47,7 @@ export default function ProductFilter() {
             </div>
           </AccordionTrigger>
           <AccordionContent>
-            Yes. It adheres to the WAI-ARIA design pattern.
+            Arshpool Building
           </AccordionContent>
         </AccordionItem>
 
@@ -59,7 +59,7 @@ export default function ProductFilter() {
             </div>
           </AccordionTrigger>
           <AccordionContent>
-            Yes. It adheres to the WAI-ARIA design pattern.
+            Arshpool Building
           </AccordionContent>
         </AccordionItem>
 

@@ -134,13 +134,14 @@ type ProductType = {
   name_ru: string;
   name_uz: string;
   price: string;
+  price_type: string;
   image: string;
   onChangeHandler: () => void;
 };
 
 function Product(props: ProductType): React.ReactElement {
   const t = useTranslations("landing.products");
-  const { style, id, name, price, image, onChangeHandler } = props;
+  const { style, id, name, price, price_type, image, onChangeHandler } = props;
   return (
     <div
       style={style}
@@ -167,7 +168,7 @@ function Product(props: ProductType): React.ReactElement {
           <span className="uppercase text-base text-[#989898]">
             {t("price")}
           </span>
-          <p className="text-3xl font-bold">{price}</p>
+          <p className="text-3xl font-bold">{price} {t(price_type)}</p>
         </div>
         <Link
           href={{

@@ -45,9 +45,13 @@
       "description": "Bizning hamkorlarimiz bilan tanishing"
     },
     "products": {
+      "title": "Mahsulotlar",
+      "description": "Bizning mahsulotlarimiz bilan tanishing",
       "name": "Nomi",
       "price": "Narxi",
-      "more": "Batafsil"
+      "more": "Batafsil",
+      "USD": "$",
+      "UZS": "so'm"
     },
     "FAQ": {
       "title": "Ko'p so'raladigan savollar",
@@ -68,7 +72,7 @@
     },
     "addresses": {
       "title": "Manzilimiz",
-      "description": "Toshkent shahri, Yunusobod tumani, Niyozbek yo'li ko'chasi 31"
+      "description": "Toshkent, Parkent koʻchasi, 170-uy"
     },
     "footer": {
       "home": "Bosh sahifa",
