@@ -16,7 +16,7 @@ export default function ProductFilterGrid({
       <ProductFilter />
       <div className="w-full">
         <h2 className="my-3 text-3xl font-bold">{t("title")}</h2>
-        <div className="grid xl:grid-cols-4 lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-6">
+        <div className="grid xl:grid-cols-4 lg:grid-cols-3 max-lg:grid-cols-2 gap-6 max-sm:gap-3">
           {data.map((product, index) => (
             <ProductCard key={index} product={product} locale={locale} />
           ))}
