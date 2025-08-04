@@ -15,7 +15,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "api.beun.uz",
+        hostname: "api.arshpool.uz",
         pathname: "/media/**",
         search: "",
       },

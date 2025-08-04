@@ -18,6 +18,8 @@ export default function ProductCard({
         className="w-full h-48 object-cover mb-3"
         src={product.image}
         alt={product.name_uz}
+        width={220}
+        height={155}
       />
       <div className="p-1">
         <h3 className="text-lg font-bold mb-1">{product[`name_${locale}`]}</h3>
