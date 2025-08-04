@@ -17,10 +17,10 @@ export default function Footer(): React.ReactElement {
                         <Link href="/" className="text-white">{t("services")}</Link>
                     </div>
                     <div className="flex gap-4 py-4 text-xl font-medium">
-                        <a href="" className="w-11 h-11 rounded-xl border border-white flex justify-center items-center"><PhoneSvg /></a>
-                        <a href="" className="w-11 h-11 rounded-xl border border-white flex justify-center items-center"><TelegramSvg /></a>
+                        <a href="tel:+998996044444" className="w-11 h-11 rounded-xl border border-white flex justify-center items-center"><PhoneSvg /></a>
+                        <a href="https://t.me/arshpooluz" className="w-11 h-11 rounded-xl border border-white flex justify-center items-center"><TelegramSvg /></a>
                         <a href="" className="w-11 h-11 rounded-xl border border-white flex justify-center items-center"><YoutubeSvg /></a>
-                        <a href="" className="w-11 h-11 rounded-xl border border-white flex justify-center items-center"><InstagramSvg /></a>
+                        <a href="https://www.instagram.com/arshpool_uz/" className="w-11 h-11 rounded-xl border border-white flex justify-center items-center"><InstagramSvg /></a>
                     </div>
                 </div>
                 <hr className="mt-10 max-md:mt-5 border-[#898989]"/>
