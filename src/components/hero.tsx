@@ -6,6 +6,9 @@ import poolBackground from "public/images/pool-background.png";
 import heroBackground from "public/images/hero-background.png";
 import saunaBackground from "public/images/sauna-background.png";
 import turkishBathBackground from "public/images/turkish-bath-background.png";
+import fountainBackground from "public/images/fountain-background.png";
+import seltyRoomBackground from "public/images/selty-room-background.png";
+import snowyRoomBackground from "public/images/snowy-room-background.png";
 import { useTranslations } from "next-intl";
 import { Button } from "./ui/button";
 import { LinkArrowSvg } from "./icons";
@@ -51,24 +54,42 @@ export default function Hero(): React.ReactElement {
 function Services(): React.ReactElement {
   const t = useTranslations("landing.hero.services");
   return (
-    <div className="container mt-8 flex max-lg:flex-wrap gap-8 max-lg:gap-4 items-center justify-center" id="services">
+    <div className="container mt-8 grid xl:grid-cols-3 max-sm:grid-cols-1 max-sm:gap-4 sm:gap-8 sm:grid-cols-2 " id="services">
       <ServiceItem
         title={t("pool")}
         label={t("title")}
-        className="max-lg:w-[calc(50%-.5rem)]"
+        className=""
         image={poolBackground}
       />
       <ServiceItem
         title={t("sauna")}
         label={t("title")}
-        className="max-lg:w-[calc(50%-.5rem)]"
+        className=""
         image={saunaBackground}
       />
       <ServiceItem
         title={t("hammam")}
         label={t("title")}
-        className="max-lg:w-full"
+        className=""
         image={turkishBathBackground}
+      />
+      <ServiceItem
+        title={t("fountain")}
+        label={t("title")}
+        className=""
+        image={fountainBackground}
+      />
+      <ServiceItem
+        title={t("seltyRoom")}
+        label={t("title")}
+        className=""
+        image={seltyRoomBackground}
+      />
+      <ServiceItem
+        title={t("snowyRoom")}
+        label={t("title")}
+        className=""
+        image={snowyRoomBackground}
       />
     </div>
   );
@@ -88,7 +109,7 @@ function ServiceItem({
   return (
     <div
       className={cn(
-        "w-1/3 box-border rounded-4xl max-md:rounded-2xl relative group overflow-hidden xl:h-[450px] lg:h-[350px] md:h-[250px] sm:h-[200px] max-sm:h-[150px]",
+        "w-full box-border rounded-4xl max-md:rounded-2xl relative group overflow-hidden xl:h-[450px] lg:h-[350px] md:h-[250px] sm:h-[200px] max-sm:h-[150px]",
         className
       )}
     >

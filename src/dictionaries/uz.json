@@ -14,13 +14,16 @@
       "contacts": "Aloqa"
     },
     "hero": {
-      "title": "10 yillik tajriba, 100 dan ortiq muvaffaqiyli loyihalar, aynan siz istagandek",
+      "title": "10 yillik tajriba, 1000 dan ortiq muvaffaqiyli loyihalar, aynan siz istagandek",
       "description": "Arshpool Building",
       "services": {
         "title": "Xizmatlar",
         "pool": "Basseynlar",
         "sauna": "Saunalar",
-        "hammam": "Hammomlar"
+        "hammam": "Hammomlar",
+        "fountain": "Favvoralar",
+        "seltyRoom": "Tuzli xona",
+        "snowyRoom": "Qorli xona"
       }
     },
     "projects": {

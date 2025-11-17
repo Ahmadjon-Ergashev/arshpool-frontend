@@ -44,8 +44,8 @@ export async function generateMetadata(
   const title = locale === "uz" ? "Arshpool Building" : "Arshpool Building";
   const desc =
     locale === "uz"
-      ? "Arshpool Building - 10 yillik tarjiba, 200+ muvafaqqiyatli loyihalar, aynan siz istagandek"
-      : "Arshpool Building – 10 лет опыта, 200+ успешных проектов, именно то, что вы хотите";
+      ? "Arshpool Building - 10 yillik tarjiba, 1000+ muvafaqqiyatli loyihalar, aynan siz istagandek"
+      : "Arshpool Building – 10 лет опыта, 1000+ успешных проектов, именно то, что вы хотите";
 
   return {
     title: title,
