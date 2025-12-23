@@ -34,7 +34,7 @@ const roobertFont = localFont({
 });
 
 export async function generateMetadata(
-  { params }: { params: Promise<{ locale: "uz" | "ru" }> },
+  { params }: { params: Promise<{ locale: string }> },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const locale = (await params).locale;
@@ -68,7 +68,7 @@ export default async function LocaleLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ locale: "uz" | "ru" }>;
+  params: Promise<{ locale: string }>;
 }>) {
   const locale = (await params).locale;
   if (!routing.locales.includes(locale as "uz" | "ru")) {
